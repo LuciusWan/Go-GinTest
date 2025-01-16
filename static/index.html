@@ -2,32 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>我的一个GoWeb页面</title>
 </head>
 <body>
-<form id="myForm">
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username"><br><br>
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password"><br><br>
-    <input type="button" value="Submit" onclick="submitForm()">
-</form>
-<script>
-    function submitForm() {
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-        const data = JSON.stringify({username: username, password: password});
-        fetch('http://localhost:8080/hello', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: data
-        })
-            .then(response => response.text())
-            .then(message => alert(message))
-            .catch(error => console.error('Error:', error));
-    }
-</script>
+    <h1>这是前端页面</h1>
+    {{.我是奶龙}}
+    <form action="/user/add" method="post">
+        <p>用户名:<input type="text" name="username"></p>
+        <p>密码:<input type="password" name="password"></p>
+        <button type="submit">提交</button>
+    </form>
 </body>
 </html>
